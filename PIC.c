@@ -85,15 +85,15 @@ char flash_read(uint16_t addr)
 
 void read()
 {
-    memset(buff,'\0',30);
+
     unsigned int index=0;
     while(1)
     {
         while(RCIF != 1);
-        buff[index]=RCREG;
-        flash_write(address+index , buff[index]);
+        char temp=RCREG;
+        flash_write(address+index , temp);
 
-        if(buff[index] == '\0')
+        if(temp == '\0')
             break;
         index++;
     }
@@ -110,7 +110,7 @@ void main(void)
     
     while(1)
     {
-        //read();
+        read();
         //send(buff);
         i=0;
         while(1)
