@@ -34,7 +34,7 @@
 
 uint16_t address=BASE_ADDR;
 unsigned int i=0;
-char buff[30];
+//char buff[30];
 //char temp[30];
 
 
