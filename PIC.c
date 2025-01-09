@@ -93,7 +93,7 @@ void read()
         buff[index]=RCREG;
         flash_write(address+index , buff[index]);
 
-        if(buff[index] == '\r')
+        if(buff[index] == '\0')
             break;
         index++;
     }
@@ -118,7 +118,7 @@ void main(void)
             char temp=flash_read(address + i);
             TXREG=temp;
             while(TRMT != 1);
-            if(temp == '\r')
+            if(temp == '\0')
                 break;
             i++;
         }
